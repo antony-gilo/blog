@@ -27,12 +27,12 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #2b4f60">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color: #2b4f60">
             <div class="container">
                 <a class="navbar-brand text-light" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                <button class="navbar-toggler text-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -48,7 +48,7 @@
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
-                                    <button class="btn btn-outline-light btn-sm mr-3 ">
+                                    <button class="btn btn-outline-light btn-sm mr-3 mb-1">
                                         <a class="nav-link text-light py-0" href="{{ route('login') }}">{{ __('Login') }}</a>
                                     </button>
                                 </li>
@@ -57,7 +57,7 @@
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <button class="btn btn-outline-light btn-sm ">
-                                        <a class="nav-link text-light py-0 ml-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                        <a class="nav-link text-light py-0" href="{{ route('register') }}">{{ __('Register') }}</a>
                                     </button>
                                 </li>
                             @endif
@@ -71,7 +71,7 @@
                                     <a class="dropdown-item " href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        <i class="fas fa-sign-out-alt pb-0"></i>  {{ __('Logout') }}
+                                          {{ __('Logout') }}     <i class="fas fa-sign-out-alt pb-0"></i>
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none ">
