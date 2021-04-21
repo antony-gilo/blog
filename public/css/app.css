@@ -22261,3 +22261,28 @@ textarea.form-control-lg {
 .bi-zoom-out::before {
   content: "";
 }
+
+:root {
+  --offcanvas-horizontal-width: 400px;
+  --topNavbarHeight: 56px;
+  --navbar-light-toggler-icon-bg: ;
+}
+
+.sidebar-nav {
+  width: var(--offcanvas-horizontal-width);
+  background-color: #2b4f60;
+  margin-top: 0px;
+}
+
+@media (min-width: 992px) {
+  body {
+    overflow: auto !important;
+  }
+
+  .sidebar-nav {
+    transform: none;
+    visibility: visible !important;
+    top: var(--topNavbarHeight);
+    height: calc(100% - var(--topNavbarHeight));
+  }
+}
