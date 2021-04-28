@@ -22264,14 +22264,28 @@ textarea.form-control-lg {
 
 :root {
   --offcanvas-horizontal-width: 400px;
-  --topNavbarHeight: 56px;
-  --navbar-light-toggler-icon-bg: ;
+  --topNavbarHeight: 58px;
+  --navbar-brand-margin-end: 0.9rem;
 }
 
 .sidebar-nav {
   width: var(--offcanvas-horizontal-width);
   background-color: #2b4f60;
   margin-top: 0px;
+}
+
+.sidebar-link {
+  display: flex;
+  align-items: center;
+}
+
+.sidebar-link .sidebar-chevron {
+  display: inline-flex;
+}
+
+.sidebar-link[aria-expanded=true] .sidebar-chevron {
+  transform: rotate(180deg);
+  transition: all ease 0.5s;
 }
 
 @media (min-width: 992px) {
@@ -22284,5 +22298,13 @@ textarea.form-control-lg {
     visibility: visible !important;
     top: var(--topNavbarHeight);
     height: calc(100% - var(--topNavbarHeight));
+  }
+
+  main {
+    margin-left: var(--offcanvas-horizontal-width);
+  }
+
+  .navbar {
+    padding-top: 0.8rem;
   }
 }

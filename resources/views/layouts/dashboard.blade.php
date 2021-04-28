@@ -32,18 +32,18 @@
 </head>
 <body>
     {{-- start of navbar --}}
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm mb-0" style="background-color: #2b4f60">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm mb-0 fixed-top" style="background-color: #2b4f60">
             <div class="container-fluid">
 
                 {{-- off canvas trigger button --}}
-                <button class="navbar-toggler text-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
-                    <span class="navbar-toggler-icon" data-bs-target="#offcanvasScrolling">
-
+                    <span class="navbar-toggler text-light mb-2 me-2" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling">
+                        <svg xmlns="http://www.w3.org/2000/svg" data-bs-target="#offcanvasScrolling" width="32" height="24" fill="currentColor" class="bi bi-arrow-left-right fw-bold" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+                        </svg>
                     </span>
-                </button>
                 {{-- end of off canvas trigger button --}}
 
-                <a class="navbar-brand text-light text-uppercase" href="{{ url('/') }}">
+                <a class="navbar-brand text-light text-uppercase me-auto" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -96,40 +96,154 @@
 
     {{-- start of offcanvas --}}
 
-    <div class="offcanvas offcanvas-start sidebar-nav text-white" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Colored with scrolling</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>Try scrolling the rest of the page to see this option in action.</p>
-      </div>
-    </div>
-    <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasWithBackdrop" aria-labelledby="offcanvasWithBackdropLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBackdropLabel">Offcanvas with backdrop</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>.....</p>
-      </div>
-    </div>
-    <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Backdroped with scrolling</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <p>Try scrolling the rest of the page to see this option in action.</p>
+    <div class="offcanvas offcanvas-start sidebar-nav text-white fixed-top" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-body p-0" >
+        <nav class="navbar-dark">
+            <ul class="navbar-nav">
+                <li>
+                    <div class="px-3 my-2">
+                        <form class="d-flex">
+                            <div class="input-group">
+                                <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                                    <span class="input-group-text" style="background-color: #845460">
+                                        <i class="bi bi-search text-white"></i>
+                                    </span>
+                              </div>
+                          </form>
+                    </div>
+                </li>
+                <li class="py-0">
+                    <hr class="dropdown-divider">
+                </li>
+                <li>
+                    <div class="px-3 my-0">
+                        <a href="#" class="nav-link active">
+                            <i class="bi bi-speedometer me-2" style="font-size: 1.1rem; color: #ead3cb;"></i>
+                            <span class="fs-4">Dashoard</span>
+                        </a>
+                    </div>
+                </li>
+                <li class="py-1">
+                    <hr class="dropdown-divider py-0">
+                </li>
+                <li>
+                    <div class="px-3 my-0">
+                        <a class="text-white sidebar-link" style="text-decoration: none" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            <i class="bi bi-wrench me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
+                            <span class="fs-4">Users</span>
+                            <span class="sidebar-chevron ms-auto">
+                            <i class="bi bi-chevron-down" style="font-size: 1.1rem;"></i>
+                            </span>
+                        </a>
+                      </p>
+                      <div class="collapse mb-0 px-3" id="collapseExample">
+                        <div class="text-white border-0" style="background-color: #2b4f60">
+                            <ul class="navbar-nav">
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="#" aria-expanded="false" aria-controls="collapseExample">
+                                        <i class="bi bi-person-lines-fill" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6">All Users</span>
+                                    </a>
+                                </li>
+                                <li class="py-0 mb-0">
+                                    <hr class="dropdown-divider py-0">
+                                </li>
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                        <i class="bi bi-person-plus" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">Create User</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </li>
+                <li class="py-0">
+                    <hr class="dropdown-divider py-0">
+                </li>
+                <li>
+                    <div class="px-3 my-0">
+                        <a class="text-white sidebar-link" style="text-decoration: none" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                            <i class="bi bi-wrench me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
+                            <span class="fs-4">Posts</span>
+                            <span class="sidebar-chevron ms-auto">
+                            <i class="bi bi-chevron-down" style="font-size: 1.1rem;"></i>
+                            </span>
+                        </a>
+                      </p>
+                      <div class="collapse mb-0 px-3" id="collapseExample2">
+                        <div class="text-white border-0" style="background-color: #2b4f60">
+                            <ul class="navbar-nav">
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="#" aria-expanded="false" aria-controls="collapseExample2">
+                                        <i class="bi bi-sticky" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6">All Posts</span>
+                                    </a>
+                                </li>
+                                <li class="py-0 mb-0">
+                                    <hr class="dropdown-divider py-0">
+                                </li>
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="#" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                                        <i class="bi bi-stickies" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">Create Post</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </li>
+                <li class="py-0">
+                    <hr class="dropdown-divider py-0">
+                </li>
+                <li>
+                    <div class="px-3 my-0">
+                        <a class="text-white sidebar-link" style="text-decoration: none" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
+                            <i class="bi bi-wrench me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
+                            <span class="fs-4">Categories</span>
+                            <span class="sidebar-chevron ms-auto">
+                            <i class="bi bi-chevron-down" style="font-size: 1.1rem;"></i>
+                            </span>
+                        </a>
+                      </p>
+                      <div class="collapse mb-0 px-3" id="collapseExample3">
+                        <div class="text-white border-0" style="background-color: #2b4f60">
+                            <ul class="navbar-nav">
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="#" aria-expanded="false" aria-controls="collapseExample3">
+                                        <i class="bi bi-tag" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6">All Categories</span>
+                                    </a>
+                                </li>
+                                <li class="py-0 mb-0">
+                                    <hr class="dropdown-divider py-0">
+                                </li>
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="#" role="button" aria-expanded="false" aria-controls="collapseExample3">
+                                        <i class="bi bi-tags" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">Create Categories</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
       </div>
     </div>
     {{-- end of off-canvas --}}
 
-    <main class="py-4">
+    {{-- MAIN SECTION --}}
+    <main class="py-4 mt-5 px-3">
         <div class="container-fluid">
             @yield('content')
         </div>
     </main>
+    {{-- END OF MAIN SECTION --}}
 </body>
 </html>
 
