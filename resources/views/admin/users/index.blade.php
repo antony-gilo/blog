@@ -1,5 +1,27 @@
-@extends('layouts.app')
+@extends('layouts.dashboard')
 
 @section('content')
-    <h3 class="display-4">Working controller</h3>
+<div class="container">
+  <table class="table table-success rounded-pill table-hover mt-3">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Names</th>
+        <th scope="col">Email Address</th>
+        <th scope="col">Date Created</th>
+      </tr>
+    </thead>
+    <tbody>
+    @foreach ($users as $user)
+      <tr>
+        <th scope="row">{{$user->id}}</th>
+        <td>{{$user->name}}</td>
+        <td>{{$user->email}}</td>
+        <td>{{$user->created_at->diffForHumans()}}</td>
+      </tr>
+    @endforeach
+    </tbody>
+  </table>
+</div>
+
 @endsection

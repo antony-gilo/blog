@@ -140,7 +140,7 @@
                         <div class="text-white border-0" style="background-color: #2b4f60">
                             <ul class="navbar-nav">
                                 <li>
-                                    <a class="text-white nav-link" style="text-decoration: none" href="#" aria-expanded="false" aria-controls="collapseExample">
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('users.index') }}" aria-expanded="false" aria-controls="collapseExample">
                                         <i class="bi bi-person-lines-fill" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6">All Users</span>
                                     </a>

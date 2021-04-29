@@ -53,7 +53,7 @@
                             @guest
                                 @if (Route::has('login'))
                                     <li class="nav-item">
-                                        <button class="btn btn-outline-light btn-sm mr-3 mb-1">
+                                        <button class="btn btn-outline-light btn-sm me-2 mb-1">
                                             <a class="nav-link text-light py-0" href="{{ route('login') }}">{{ __('Login') }}</a>
                                         </button>
                                     </li>
