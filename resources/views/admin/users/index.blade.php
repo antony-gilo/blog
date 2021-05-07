@@ -7,7 +7,9 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Names</th>
+        <th scope="col">Role</th>
         <th scope="col">Email Address</th>
+        <th scope="col">Status</th>
         <th scope="col">Date Created</th>
       </tr>
     </thead>
@@ -16,7 +18,9 @@
       <tr>
         <th scope="row">{{$user->id}}</th>
         <td>{{$user->name}}</td>
+        <td>{{$user->role->role_name}}</td>
         <td>{{$user->email}}</td>
+        <td>{{$user->is_active === 1 ? 'Active' : 'Inactive'}}</td>
         <td>{{$user->created_at->diffForHumans()}}</td>
       </tr>
     @endforeach

@@ -90,11 +90,9 @@
             </div>
         </nav>
 
-        <main class="py-4">
-            <div class="container-fluid">
+            <div class="container py-4">
                 @yield('content')
             </div>
-        </main>
     </div>
 </body>
 </html>

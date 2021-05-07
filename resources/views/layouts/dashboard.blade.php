@@ -43,7 +43,7 @@
                     </span>
                 {{-- end of off canvas trigger button --}}
 
-                <a class="navbar-brand text-light text-uppercase me-auto" href="{{ url('/') }}">
+                <a class="navbar-brand text-light text-uppercase me-auto" href="{{ url('/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -146,10 +146,10 @@
                                     </a>
                                 </li>
                                 <li class="py-0 mb-0">
-                                    <hr class="dropdown-divider py-0">
+                                    {{-- <hr class="dropdown-divider py-0"> --}}
                                 </li>
                                 <li>
-                                    <a class="text-white nav-link" style="text-decoration: none" href="#" role="button" aria-expanded="false" aria-controls="collapseExample">
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('users.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample">
                                         <i class="bi bi-person-plus" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6 mb-0">Create User</span>
                                     </a>
@@ -182,10 +182,10 @@
                                     </a>
                                 </li>
                                 <li class="py-0 mb-0">
-                                    <hr class="dropdown-divider py-0">
+                                    {{-- <hr class="dropdown-divider py-0"> --}}
                                 </li>
                                 <li>
-                                    <a class="text-white nav-link" style="text-decoration: none" href="#" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                                    <a class="text-white nav-link" style="text-decoration: none" href="" role="button" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class="bi bi-stickies" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6 mb-0">Create Post</span>
                                     </a>
@@ -218,7 +218,7 @@
                                     </a>
                                 </li>
                                 <li class="py-0 mb-0">
-                                    <hr class="dropdown-divider py-0">
+                                    {{-- <hr class="dropdown-divider py-0"> --}}
                                 </li>
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="#" role="button" aria-expanded="false" aria-controls="collapseExample3">

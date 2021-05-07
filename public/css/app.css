@@ -22288,7 +22288,7 @@ textarea.form-control-lg {
   transition: all ease 0.5s;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 792px) {
   body {
     overflow: auto !important;
   }
