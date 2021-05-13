@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Role;
-use App\Http\Requests\UserRequest;
+use App\Models\User;
 use App\Models\Photo;
+use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+use App\Http\Requests\UpdateUserRequest;
 
 class AdminUserController extends Controller
 {
@@ -40,21 +41,27 @@ class AdminUserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        $user_data = $request->all();
-        $user_data['password'] = bcrypt($request->password);
 
-        if ($file = $request->file('photo_id')) {
+        if (trim($request->getPassword()) == '') {
+            $user_data = $request->except('password');
+        } else {
 
-            $name = $file->getClientOriginalName() . time();
-            $file->move('images', $name);
+            $user_data = $request->all();
+            $user_data['password'] = bcrypt($request->password);
 
-            $profile_photo = Photo::create(['path' => $name]);
+            if ($file = $request->file('photo_id')) {
 
-            $user_data['photo_id'] = $profile_photo->id;
+                $name = $file->getClientOriginalName() . time();
+                $file->move('images', $name);
+
+                $profile_photo = Photo::create(['path' => $name]);
+
+                $user_data['photo_id'] = $profile_photo->id;
+            }
+
+            User::create($user_data);
+            return redirect('admin/users/');
         }
-
-        User::create($user_data);
-        return redirect('admin/users/');
     }
 
     /**
@@ -76,7 +83,10 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $roles_array = Role::pluck('role_name', 'id')->all();
+
+        return view('admin.users.edit', compact('user', 'roles_array'));
     }
 
     /**
@@ -86,9 +96,30 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if (trim($request->getPassword()) == '') {
+            $user_data = $request->except('password');
+        } else {
+            $user_data = $request->all();
+        }
+
+        $user_data['password'] = bcrypt($request->password);
+
+        if ($file = $request->file('photo_id')) {
+
+            $name = $file->getClientOriginalName() . time();
+            $file->move('images', $name);
+
+            $profile_photo = Photo::create(['path' => $name]);
+
+            $user_data['photo_id'] = $profile_photo->id;
+        }
+
+        $user->update($user_data);
+        return redirect('admin/users/');
     }
 
     /**

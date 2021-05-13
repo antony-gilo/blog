@@ -13,8 +13,15 @@ class Photo extends Model
         'path',
     ];
 
+    protected $path = '/images/';
+
     public function user()
     {
         return $this->hasOne('App/Models/User');
+    }
+
+    public function getPathAttribute($photo)
+    {
+        return $this->path . $photo;
     }
 }
