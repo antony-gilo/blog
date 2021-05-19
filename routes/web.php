@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminRedirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -24,7 +25,7 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-Route::group(['middleware', 'web'], function () {
-
+Route::middleware(['admin'])->group(function () {
     Route::resource('/admin/users', AdminUserController::class);
+    Route::get('/admin', [AdminRedirect::class, 'index'])->name('admin.index');
 });
