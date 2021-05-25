@@ -43,7 +43,7 @@
                     </span>
                 {{-- end of off canvas trigger button --}}
 
-                <a class="navbar-brand text-light text-uppercase me-auto" href="{{ url('/admin') }}">
+                <a class="navbar-brand text-light text-uppercase me-auto" href="{{ url('/admin/home') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
