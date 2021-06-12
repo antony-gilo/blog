@@ -8,6 +8,8 @@ use App\Models\Photo;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use Illuminate\Support\Facades\Session;
+use phpDocumentor\Reflection\Types\Null_;
 
 class AdminUserController extends Controller
 {
@@ -48,11 +50,12 @@ class AdminUserController extends Controller
     public function store(UserRequest $request)
     {
 
-        if (trim($request->getPassword()) == '') {
+        if (trim($request->password) == '') {
             $user_data = $request->except('password');
         } else {
 
             $user_data = $request->all();
+
             $user_data['password'] = bcrypt($request->password);
 
             if ($file = $request->file('photo_id')) {
@@ -64,9 +67,8 @@ class AdminUserController extends Controller
 
                 $user_data['photo_id'] = $profile_photo->id;
             }
-
             User::create($user_data);
-            return redirect('admin/users/');
+            return redirect()->route('users.index');
         }
     }
 
@@ -106,13 +108,12 @@ class AdminUserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        if (trim($request->getPassword()) == '') {
+        if (trim($request->password) == '') {
             $user_data = $request->except('password');
         } else {
             $user_data = $request->all();
+            $user_data['password'] = bcrypt($request->password);
         }
-
-        $user_data['password'] = bcrypt($request->password);
 
         if ($file = $request->file('photo_id')) {
 
@@ -125,7 +126,8 @@ class AdminUserController extends Controller
         }
 
         $user->update($user_data);
-        return redirect('admin/users/');
+        Session::flash('user.update', 'The User: ' . $user->name . ' has been updated successfully!');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -136,6 +138,12 @@ class AdminUserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        unlink(public_path() . $user->photo->path);
+
+        $user->delete();
+        Session::flash('user.delete', 'The User: ' . $user->name . ' has been deleted successfully!');
+
+        return redirect()->route('users.index');
     }
 }

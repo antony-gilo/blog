@@ -176,7 +176,7 @@
                         <div class="text-white border-0" style="background-color: #2b4f60">
                             <ul class="navbar-nav">
                                 <li>
-                                    <a class="text-white nav-link" style="text-decoration: none" href="#" aria-expanded="false" aria-controls="collapseExample2">
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('posts.index') }}" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class="bi bi-sticky" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6">All Posts</span>
                                     </a>
@@ -185,7 +185,7 @@
                                     {{-- <hr class="dropdown-divider py-0"> --}}
                                 </li>
                                 <li>
-                                    <a class="text-white nav-link" style="text-decoration: none" href="" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('posts.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class="bi bi-stickies" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6 mb-0">Create Post</span>
                                     </a>

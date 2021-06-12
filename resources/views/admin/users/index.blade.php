@@ -2,6 +2,18 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('user.delete'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ Session('user.delete') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+    @if (Session::has('user.update'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ Session('user.update') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
   <table class="table table-success rounded-pill table-hover mt-3">
     <thead>
       <tr>

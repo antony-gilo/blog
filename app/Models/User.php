@@ -56,6 +56,11 @@ class User extends Authenticatable
         return $this->belongsTo(Photo::class);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     public function is_admin()
     {
         return $this->role()->where('id', 1)->exists();

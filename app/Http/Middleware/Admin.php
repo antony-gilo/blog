@@ -18,10 +18,13 @@ class Admin
 
     public function handle(Request $request, Closure $next)
     {
-        $user = Auth::user();
-        if (!$user->is_admin()) {
-            return redirect('/home');
+        if (Auth::check()) {
+
+            $user = Auth::user();
+            if (!$user->is_admin()) {
+                return redirect('/home');
+            }
+            return $next($request);
         }
-        return $next($request);
     }
 }

@@ -26,7 +26,6 @@ class UpdateUserRequest extends FormRequest
         return [
             'name' => 'required | max:20',
             'email' => 'required | email ',
-            'photo_id' => 'required'
         ];
     }
 }

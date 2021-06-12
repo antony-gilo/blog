@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\AdminRedirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminRedirect;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminUserController;
+use App\Http\Controllers\AdminPostsController;
 use App\Http\Controllers\CustomLoginController;
 
 /*
@@ -27,9 +28,10 @@ Auth::routes();
 Route::middleware(['admin'])->group(function () {
     Route::resource('/admin/users', AdminUserController::class);
     Route::get('/admin/home', [AdminRedirect::class, 'index'])->name('admin.home');
+    Route::resource('/admin/posts', AdminPostsController::class);
 });
 
-Route::post('/login', [CustomLoginController::class, 'login'])->name('custom.login');
+Route::post('/login/custom', [CustomLoginController::class, 'login'])->name('custom.login');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminRedirect::class, 'index'])->name('admin.index');

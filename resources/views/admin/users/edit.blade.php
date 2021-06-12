@@ -60,6 +60,12 @@
         </div>
     </div>
     {!! Form::close() !!}
+
+    {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\AdminUserController@destroy', $user->id]]) !!}
+        <div class="me-2">
+            {!! Form::submit('Delete User', ['class' => ['btn', 'btn-xs', 'btn-danger', 'my-2', 'text-white']]) !!}
+        </div>
+    {!! Form::close() !!}
     </div>
 
 </div>
