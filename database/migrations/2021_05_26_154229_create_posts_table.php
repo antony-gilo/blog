@@ -15,12 +15,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->integer('user_id')->unsigned()->index();
+            $table->bigInteger('user_id')->unsigned()->index();
             $table->string('title');
             $table->text('body');
-            $table->integer('category_id')->unsigned()->index();
-            $table->integer('photo_id')->unsigned()->index();
+            $table->bigInteger('category_id')->unsigned()->index();
+            $table->bigInteger('photo_id')->unsigned()->index();
             $table->timestamps();
+
+            //DELETING RELATIONSHIPS BTN TWO TABLES
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
         });
     }
 
