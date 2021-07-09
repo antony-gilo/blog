@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminRedirect;
@@ -29,6 +30,7 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('/admin/users', AdminUserController::class);
     Route::get('/admin/home', [AdminRedirect::class, 'index'])->name('admin.home');
     Route::resource('/admin/posts', AdminPostsController::class);
+    Route::resource('/admin/categories', AdminCategoryController::class);
 });
 
 Route::post('/login/custom', [CustomLoginController::class, 'login'])->name('custom.login');

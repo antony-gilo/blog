@@ -212,7 +212,7 @@
                         <div class="text-white border-0" style="background-color: #2b4f60">
                             <ul class="navbar-nav">
                                 <li>
-                                    <a class="text-white nav-link" style="text-decoration: none" href="#" aria-expanded="false" aria-controls="collapseExample3">
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('categories.index') }}" aria-expanded="false" aria-controls="collapseExample3">
                                         <i class="bi bi-tag" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6">All Categories</span>
                                     </a>
@@ -221,7 +221,7 @@
                                     {{-- <hr class="dropdown-divider py-0"> --}}
                                 </li>
                                 <li>
-                                    <a class="text-white nav-link" style="text-decoration: none" href="#" role="button" aria-expanded="false" aria-controls="collapseExample3">
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('categories.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample3">
                                         <i class="bi bi-tags" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6 mb-0">Create Categories</span>
                                     </a>
