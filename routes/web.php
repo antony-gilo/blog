@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminPostsController;
 use App\Http\Controllers\CustomLoginController;
+use App\Http\Controllers\AdminMediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,6 +32,7 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin/home', [AdminRedirect::class, 'index'])->name('admin.home');
     Route::resource('/admin/posts', AdminPostsController::class);
     Route::resource('/admin/categories', AdminCategoryController::class);
+    Route::resource('/admin/media', AdminMediaController::class);
 });
 
 Route::post('/login/custom', [CustomLoginController::class, 'login'])->name('custom.login');

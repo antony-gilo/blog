@@ -20,6 +20,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     @endif
+    <h4>Posts:</h4>
   <table class="table table-success rounded-pill table-hover mt-3">
     <thead>
       <tr>

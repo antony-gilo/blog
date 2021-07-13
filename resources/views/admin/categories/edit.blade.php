@@ -27,16 +27,18 @@
             {!! Form::label('category', 'Post Category:', ['class' => 'input-label']) !!}
             {!! Form::text('category', $category->category, ['class' => ['form-control', 'mb-1']]) !!}
         </div>
-        <div class="me-2">
+    <div style="display: flex;">
+        <div class="me-2 col">
             {!! Form::submit('Update Category', ['class' => ['btn', 'btn-xs', 'btn-primary', 'my-3', 'text-white']]) !!}
         </div>
     </div>
     {!! Form::close() !!}
 
     {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\AdminCategoryController@destroy', $category->id]]) !!}
-        <div class="me-2">
+        <div class="me-2 col">
             {!! Form::submit('Delete Post', ['class' => ['btn', 'btn-xs', 'btn-danger', 'my-2', 'text-white']]) !!}
         </div>
+    </div>
     {!! Form::close() !!}
     </div>
 

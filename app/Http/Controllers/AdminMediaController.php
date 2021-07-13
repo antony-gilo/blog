@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Photo;
+use Facade\FlareClient\Time\Time;
 use Illuminate\Http\Request;
 
-class AdminCategoryController extends Controller
+class AdminMediaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class AdminCategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-        return view('admin.categories.index', compact('categories'));
+        $photos = Photo::all();
+        return view('admin.media.index', compact('photos'));
     }
 
     /**
@@ -25,8 +26,7 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-        return view('admin.categories.create', compact('categories'));
+        return view('admin.media.create');
     }
 
     /**
@@ -37,10 +37,13 @@ class AdminCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = $request->all();
-        Category::create($category);
+        $file = $request->file('file');
 
-        return redirect()->back();
+        $name = time() . $file->getClientOriginalName();
+
+        $file->move('images', $name);
+
+        Photo::create(['path' => $name]);
     }
 
     /**
@@ -62,8 +65,7 @@ class AdminCategoryController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::findOrFail($id);
-        return view('admin.categories.edit', compact('category'));
+        //
     }
 
     /**
@@ -75,11 +77,7 @@ class AdminCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
-        $category_update = $request->all();
-        $category->update($category_update);
-
-        return redirect()->route('categories.index');
+        //
     }
 
     /**
@@ -90,9 +88,6 @@ class AdminCategoryController extends Controller
      */
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
-
-        redirect()->route('categories.index');
+        //
     }
 }

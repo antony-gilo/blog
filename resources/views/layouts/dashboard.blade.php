@@ -18,6 +18,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
     <style>
         body{
             background-color: #bdc7c9;
@@ -105,9 +106,9 @@
                         <form class="d-flex">
                             <div class="input-group">
                                 <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
-                                    <span class="input-group-text" style="background-color: #845460">
-                                        <i class="bi bi-search text-white"></i>
-                                    </span>
+                                    <button type="submit" class="input-group-text" style="background-color: #845460">
+                                            <i class="bi bi-search text-white"></i>
+                                    </button>
                               </div>
                           </form>
                     </div>
@@ -118,7 +119,7 @@
                 <li>
                     <div class="px-3 my-0">
                         <a href="#" class="nav-link active">
-                            <i class="bi bi-speedometer me-2" style="font-size: 1.1rem; color: #ead3cb;"></i>
+                            <i class="bi bi-speedometer me-2" style="font-size: 1.4rem; color: #ead3cb;"></i>
                             <span class="fs-4">Dashoard</span>
                         </a>
                     </div>
@@ -129,7 +130,7 @@
                 <li>
                     <div class="px-3 my-0">
                         <a class="text-white sidebar-link" style="text-decoration: none" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-                            <i class="bi bi-wrench me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
+                            <i class="bi bi-person-bounding-box me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
                             <span class="fs-4">Users</span>
                             <span class="sidebar-chevron ms-auto">
                             <i class="bi bi-chevron-down" style="font-size: 1.1rem;"></i>
@@ -141,8 +142,8 @@
                             <ul class="navbar-nav">
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('users.index') }}" aria-expanded="false" aria-controls="collapseExample">
-                                        <i class="bi bi-person-lines-fill" style="font-size: 1.0rem; color: #ead3cb;"></i>
-                                        <span class="fs-6">All Users</span>
+                                        <i class="bi bi-people" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6">&nbsp;All Users</span>
                                     </a>
                                 </li>
                                 <li class="py-0 mb-0">
@@ -150,8 +151,8 @@
                                 </li>
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('users.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        <i class="bi bi-person-plus" style="font-size: 1.0rem; color: #ead3cb;"></i>
-                                        <span class="fs-6 mb-0">Create User</span>
+                                        <i class="bi bi-person-check" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">&nbsp;Create User</span>
                                     </a>
                                 </li>
                             </ul>
@@ -165,7 +166,7 @@
                 <li>
                     <div class="px-3 my-0">
                         <a class="text-white sidebar-link" style="text-decoration: none" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                            <i class="bi bi-wrench me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
+                            <i class="bi bi-signpost-2 me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
                             <span class="fs-4">Posts</span>
                             <span class="sidebar-chevron ms-auto">
                             <i class="bi bi-chevron-down" style="font-size: 1.1rem;"></i>
@@ -177,8 +178,8 @@
                             <ul class="navbar-nav">
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('posts.index') }}" aria-expanded="false" aria-controls="collapseExample2">
-                                        <i class="bi bi-sticky" style="font-size: 1.0rem; color: #ead3cb;"></i>
-                                        <span class="fs-6">All Posts</span>
+                                        <i class="bi bi-stickies" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6">&nbsp;All Posts</span>
                                     </a>
                                 </li>
                                 <li class="py-0 mb-0">
@@ -186,8 +187,8 @@
                                 </li>
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('posts.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                                        <i class="bi bi-stickies" style="font-size: 1.0rem; color: #ead3cb;"></i>
-                                        <span class="fs-6 mb-0">Create Post</span>
+                                        <i class="bi bi-signpost" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">&nbsp;Create Post</span>
                                     </a>
                                 </li>
                             </ul>
@@ -201,7 +202,7 @@
                 <li>
                     <div class="px-3 my-0">
                         <a class="text-white sidebar-link" style="text-decoration: none" data-bs-toggle="collapse" href="#collapseExample3" role="button" aria-expanded="false" aria-controls="collapseExample3">
-                            <i class="bi bi-wrench me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
+                            <i class="bi bi-bookmark-star-fill me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
                             <span class="fs-4">Categories</span>
                             <span class="sidebar-chevron ms-auto">
                             <i class="bi bi-chevron-down" style="font-size: 1.1rem;"></i>
@@ -214,7 +215,7 @@
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('categories.index') }}" aria-expanded="false" aria-controls="collapseExample3">
                                         <i class="bi bi-tag" style="font-size: 1.0rem; color: #ead3cb;"></i>
-                                        <span class="fs-6">All Categories</span>
+                                        <span class="fs-6">&nbsp;All Categories</span>
                                     </a>
                                 </li>
                                 <li class="py-0 mb-0">
@@ -222,8 +223,44 @@
                                 </li>
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('categories.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample3">
-                                        <i class="bi bi-tags" style="font-size: 1.0rem; color: #ead3cb;"></i>
-                                        <span class="fs-6 mb-0">Create Categories</span>
+                                        <i class="bi bi-bookmark-plus" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">&nbsp;Create Categories</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                      </div>
+                    </div>
+                </li>
+                <li class="py-0">
+                    <hr class="dropdown-divider py-0">
+                </li>
+                <li>
+                    <div class="px-3 my-0">
+                        <a class="text-white sidebar-link" style="text-decoration: none" data-bs-toggle="collapse" href="#collapseExample4" role="button" aria-expanded="false" aria-controls="collapseExample4">
+                            <i class="bi bi-camera-reels me-2" style="font-size: 1.4rem; color: #ead3cb;" ></i>
+                            <span class="fs-4">Media</span>
+                            <span class="sidebar-chevron ms-auto">
+                            <i class="bi bi-chevron-down" style="font-size: 1.1rem;"></i>
+                            </span>
+                        </a>
+                      </p>
+                      <div class="collapse mb-0 px-3" id="collapseExample4">
+                        <div class="text-white border-0" style="background-color: #2b4f60">
+                            <ul class="navbar-nav">
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('media.index') }}" aria-expanded="false" aria-controls="collapseExample4">
+                                        <i class="bi bi-collection-play" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6">&nbsp;All Media</span>
+                                    </a>
+                                </li>
+                                <li class="py-0 mb-0">
+                                    {{-- <hr class="dropdown-divider py-0"> --}}
+                                </li>
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('media.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample4">
+                                        <i class="bi bi-film" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">&nbsp;Create Media</span>
                                     </a>
                                 </li>
                             </ul>
@@ -244,6 +281,7 @@
         </div>
     </main>
     {{-- END OF MAIN SECTION --}}
+    @yield('scripts')
 </body>
 </html>
 

@@ -2,24 +2,7 @@
 
 @section('content')
 <div class="container">
-    @if (Session::has('post.delete'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ Session('post.delete') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-    @if (Session::has('post.update'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session('post.update') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-    @if (Session::has('post.create'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ Session('post.create') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
+<h4>Categories</h4>
   <table class="table table-success rounded-pill table-hover mt-3">
     <thead>
       <tr>
