@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container-fluid">
+<div class="row">
 @if (count($errors) > 0)
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
@@ -15,8 +15,8 @@
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 @endif
-    <div style="display: flex; width: 100%;">
-        <div class="m-5">
+    <div class="col" style="display: flex;">
+        <div class="m-5" style="flex: 1;">
             {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminCategoryController@store']) !!}
             <div class="row justify-content-center">
                 {!! Form::token() !!}
@@ -31,7 +31,7 @@
             </div>
             {!! Form::close() !!}
         </div>
-        <div class="my-5 ms-5">
+        <div class="my-5 ms-5 col" style="flex: 1;">
             <table class="table table-success rounded-pill table-hover mt-3">
                 <thead>
                   <tr>

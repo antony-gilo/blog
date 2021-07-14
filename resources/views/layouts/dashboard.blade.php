@@ -142,7 +142,7 @@
                             <ul class="navbar-nav">
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('users.index') }}" aria-expanded="false" aria-controls="collapseExample">
-                                        <i class="bi bi-people" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <i class="bi bi-people-fill" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6">&nbsp;All Users</span>
                                     </a>
                                 </li>
@@ -151,7 +151,7 @@
                                 </li>
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('users.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample">
-                                        <i class="bi bi-person-check" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <i class="bi bi-person-plus-fill" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6 mb-0">&nbsp;Create User</span>
                                     </a>
                                 </li>
@@ -178,7 +178,7 @@
                             <ul class="navbar-nav">
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('posts.index') }}" aria-expanded="false" aria-controls="collapseExample2">
-                                        <i class="bi bi-stickies" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <i class="bi bi-journals" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6">&nbsp;All Posts</span>
                                     </a>
                                 </li>
@@ -187,7 +187,7 @@
                                 </li>
                                 <li>
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('posts.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample2">
-                                        <i class="bi bi-signpost" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <i class="bi bi-pencil-square" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6 mb-0">&nbsp;Create Post</span>
                                     </a>
                                 </li>

@@ -8,7 +8,7 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">File</th>
-        <th scope="col">Date Created</th>
+        <th scope="col" colspan="2">Date Created</th>
       </tr>
     </thead>
     <tbody>
@@ -18,7 +18,14 @@
         <td class="justify-content-align-center">
             <img height="50" width="50" style="border-radius: 10%;" class="px-auto" src="{{ $photo->path ? $photo->path : '/images/default.jpg' }}" alt="image">
         </td>
-        <td>{{$photo->created_at->diffForHumans()}}</td>
+        <td class="justify-content-align-center">
+            {{$photo->created_at->diffForHumans()}}
+        </td>
+        <td>
+            {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\AdminMediaController@destroy', $photo->id]]) !!}
+                    {!! Form::submit('Delete Media', ['class' => ['btn', 'btn-xs', 'btn-danger', 'text-white']]) !!}
+            {!! Form::close() !!}
+        </td>
       </tr>
     @endforeach
     </tbody>

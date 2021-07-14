@@ -88,6 +88,11 @@ class AdminMediaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $photo = Photo::find($id);
+        $name = $photo->path;
+        unlink(public_path() . $name);
+
+        $photo->delete();
+        return redirect()->back();
     }
 }

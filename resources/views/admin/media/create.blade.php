@@ -8,9 +8,9 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row justify-content-center">
-        <h4>Create New Media</h4>
+<div class="" style="display: flex; align-content: center; align-content: center; margin-top: 10%;">
+    <div class="row justify-content-center flex-fill">
+        <h4 class="text-center mb-4">Create New Media</h4>
         {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminMediaController@store', 'class'=>'dropzone']) !!}
         {!! Form::close() !!}
     </div>
