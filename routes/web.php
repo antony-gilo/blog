@@ -9,6 +9,8 @@ use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AdminPostsController;
 use App\Http\Controllers\CustomLoginController;
 use App\Http\Controllers\AdminMediaController;
+use App\Http\Controllers\AdminCommentController;
+use App\Http\Controllers\CommentReplyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +24,7 @@ use App\Http\Controllers\AdminMediaController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
@@ -33,6 +35,8 @@ Route::middleware(['admin'])->group(function () {
     Route::resource('/admin/posts', AdminPostsController::class);
     Route::resource('/admin/categories', AdminCategoryController::class);
     Route::resource('/admin/media', AdminMediaController::class);
+    Route::resource('/admin/comments', AdminCommentController::class);
+    Route::resource('/admin/comment/replies', CommentReplyController::class);
 });
 
 Route::post('/login/custom', [CustomLoginController::class, 'login'])->name('custom.login');
