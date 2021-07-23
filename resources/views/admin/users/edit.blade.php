@@ -23,7 +23,7 @@
 
     <div class="col-sm-8">
         {!! Form::model($user, ['method' => 'PATCH', 'action' => ['App\Http\Controllers\AdminUserController@update', $user->id], 'files' => true]) !!}
-
+        @csrf
     <div class="row justify-content-center">
         <div class="me-2">
             {!! Form::token() !!}
@@ -62,6 +62,7 @@
     {!! Form::close() !!}
 
     {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\AdminUserController@destroy', $user->id]]) !!}
+    @csrf
         <div class="me-2">
             {!! Form::submit('Delete User', ['class' => ['btn', 'btn-xs', 'btn-danger', 'my-2', 'text-white']]) !!}
         </div>

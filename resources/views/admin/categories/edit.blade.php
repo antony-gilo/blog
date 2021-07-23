@@ -33,6 +33,7 @@
         {!! Form::close() !!}
 
     {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\AdminCategoryController@destroy', $category->id]]) !!}
+    @csrf
         <div class="me-2" style="flex: 1">
             {!! Form::submit('Delete Post', ['class' => ['btn', 'btn-xs', 'btn-danger', 'my-3', 'text-white']]) !!}
         </div>

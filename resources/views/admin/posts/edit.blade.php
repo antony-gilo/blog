@@ -23,7 +23,7 @@
 
     <div class="col-sm-8">
         {!! Form::model($post, ['method' => 'PATCH', 'action' => ['App\Http\Controllers\AdminPostsController@update', $post->id], 'files' => true]) !!}
-
+        @csrf
     <div class="row justify-content-center">
         <div class="me-2">
             {!! Form::token() !!}
@@ -38,7 +38,7 @@
         <div class="me-2 my-1">
             {!! Form::token() !!}
             {!! Form::label('category_id', 'Post Category:', ['class' => 'input-label']) !!}
-            {!! Form::select('category_id', $posts_array, $post->category_id, ['class' => ['form-select', 'mb-1', 'placeholder' => 'Select Post Category']]) !!}
+            {!! Form::select('category_id', $posts_array, $post->category_id, ['class' => ['form-select', 'mb-1']]) !!}
         </div>
         <div class="me-2 my-1">
             {!! Form::token() !!}
@@ -52,6 +52,7 @@
     {!! Form::close() !!}
 
     {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\AdminPostsController@destroy', $post->id]]) !!}
+    @csrf
         <div class="me-2">
             {!! Form::submit('Delete Post', ['class' => ['btn', 'btn-xs', 'btn-danger', 'my-2', 'text-white']]) !!}
         </div>

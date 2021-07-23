@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CreatePostRequest;
+use Illuminate\Support\Str;
 
 class AdminPostsController extends Controller
 {
@@ -56,8 +57,10 @@ class AdminPostsController extends Controller
             $post_data['photo_id'] = $post_photo->id;
         }
 
+        $post_data['body'] = nl2br($request->body);
+
         $user->posts()->create($post_data);
-        Session::flash('post.create', 'The Post has been CREATED and published.');
+        Session::flash('post.create', 'The Post has been CREATED and PUBLISHED to blog.');
         return redirect()->route('posts.index');
     }
 
@@ -67,9 +70,10 @@ class AdminPostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function post($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        return view('blog', compact('post'));
     }
 
     /**
@@ -82,6 +86,7 @@ class AdminPostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $posts_array = Category::pluck('category', 'id')->all();
+        $post->body = Str::replaceArray('<br />', ['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''], $post->body);
         return view('admin.posts.edit', compact('post', 'posts_array'));
     }
 
@@ -104,6 +109,7 @@ class AdminPostsController extends Controller
             $post_photo = Photo::create(['path' => $name]);
             $post_data['photo_id'] = $post_photo->id;
         }
+        $post_data['body'] = nl2br($request->body);
         $user->posts()->whereId($id)->first()->update($post_data);
         Session::flash('post.update', 'The Post has been UPDATED successfully!');
 

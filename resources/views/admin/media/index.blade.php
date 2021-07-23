@@ -23,6 +23,7 @@
         </td>
         <td>
             {!! Form::open(['method' => 'DELETE', 'action' => ['App\Http\Controllers\AdminMediaController@destroy', $photo->id]]) !!}
+            @csrf
                     {!! Form::submit('Delete Media', ['class' => ['btn', 'btn-xs', 'btn-danger', 'text-white']]) !!}
             {!! Form::close() !!}
         </td>

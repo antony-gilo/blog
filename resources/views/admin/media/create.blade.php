@@ -12,6 +12,7 @@
     <div class="row justify-content-center flex-fill">
         <h4 class="text-center mb-4">Create New Media</h4>
         {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminMediaController@store', 'class'=>'dropzone']) !!}
+        @csrf
         {!! Form::close() !!}
     </div>
 </div>

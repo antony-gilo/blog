@@ -44,4 +44,5 @@ Route::post('/login/custom', [CustomLoginController::class, 'login'])->name('cus
 Route::middleware(['auth'])->group(function () {
     Route::get('/admin', [AdminRedirect::class, 'index'])->name('admin.index');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/posts/{id}', [AdminPostsController::class, 'post'])->name('home.blog');
 });

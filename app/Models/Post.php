@@ -8,10 +8,13 @@ use App\Models\Photo;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Comment;
+use Collective\Html\Eloquent\FormAccessible;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
     use HasFactory;
+    use FormAccessible;
 
     protected $fillable = [
         'user_id',

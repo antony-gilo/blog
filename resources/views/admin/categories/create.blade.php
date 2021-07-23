@@ -18,6 +18,7 @@
     <div class="col" style="display: flex;">
         <div class="m-5" style="flex: 1;">
             {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminCategoryController@store']) !!}
+            @csrf
             <div class="row justify-content-center">
                 {!! Form::token() !!}
                 <div class="me-2">

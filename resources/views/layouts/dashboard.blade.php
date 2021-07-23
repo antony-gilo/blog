@@ -45,7 +45,7 @@
                 {{-- end of off canvas trigger button --}}
 
                 <a class="navbar-brand text-light text-uppercase me-auto" href="{{ url('/admin/home') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'BloggenUI') }}
                 </a>
                 <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -189,6 +189,12 @@
                                     <a class="text-white nav-link" style="text-decoration: none" href="{{ route('posts.create') }}" role="button" aria-expanded="false" aria-controls="collapseExample2">
                                         <i class="bi bi-pencil-square" style="font-size: 1.0rem; color: #ead3cb;"></i>
                                         <span class="fs-6 mb-0">&nbsp;Create Post</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="text-white nav-link" style="text-decoration: none" href="{{ route('comments.index') }}" role="button" aria-expanded="false" aria-controls="collapseExample2">
+                                        <i class="bi bi-chat-left-text" style="font-size: 1.0rem; color: #ead3cb;"></i>
+                                        <span class="fs-6 mb-0">&nbsp;Comments</span>
                                     </a>
                                 </li>
                             </ul>

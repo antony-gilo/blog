@@ -17,6 +17,7 @@
 @endif
 
   {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminUserController@store', 'files' => true]) !!}
+  @csrf
   <div class="row justify-content-center">
     <div class="me-2">
     <h4>Create New User</h4>

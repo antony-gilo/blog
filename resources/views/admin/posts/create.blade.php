@@ -17,6 +17,7 @@
 @endif
 
   {!! Form::open(['method' => 'POST', 'action' => 'App\Http\Controllers\AdminPostsController@store', 'files' => true]) !!}
+  @csrf
   <div class="row justify-content-center">
     {!! Form::token() !!}
     <div class="me-2">
