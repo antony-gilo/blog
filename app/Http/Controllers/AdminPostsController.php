@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Http\Requests\CreatePostRequest;
+use App\Models\Comment;
 use Illuminate\Support\Str;
 
 class AdminPostsController extends Controller
@@ -73,7 +74,8 @@ class AdminPostsController extends Controller
     public function post($id)
     {
         $post = Post::findOrFail($id);
-        return view('blog', compact('post'));
+        $comments = $post->comments;
+        return view('blog', compact('post', 'comments'));
     }
 
     /**

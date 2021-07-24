@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminCommentController extends Controller
 {
@@ -15,8 +16,7 @@ class AdminCommentController extends Controller
     public function index()
     {
         $comments = Comment::all();
-        // return view('admin.comments.index', compact('comments'));
-        return view('blog');
+        return view('admin.comments.index', compact('comments'));
     }
 
     /**
@@ -37,7 +37,20 @@ class AdminCommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = Auth::user();
+        $user_name = $user->name;
+        $user_email = $user->email;
+
+        $comment = new Comment();
+        $comment->author = $user_name;
+        $comment->author_email = $user_email;
+        $comment->author_photo = $user->photo->path;
+        $comment->body = $request->comment;
+        $comment->post_id = $request->post_id;
+
+        $comment->save();
+
+        return redirect()->back();
     }
 
     /**
