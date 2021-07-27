@@ -1,2 +1,2 @@
-require('./bootstrap');
-require('@fortawesome/fontawesome-free/js/all');
+import './bootstrap';
+import '@fortawesome/fontawesome-free/js/all';
